@@ -8,27 +8,27 @@ class Card( object ):
         self.showing = False
     def __repr__(self):
         if self.showing:
-            return str(self.name) + " of " + self.suit
+            return str(self.name) + self.suit
         else:
             return "Card"
 
 class StandardDeck (list):
     def __init__(self):
         self.cards = []
-        suits = ["Hearts", "Spades", "Diamonds", "Clubs"]
-        values = {"Two"   : 2,
-                  "Three" : 3,
-                  "Four"  : 4,
-                  "Five"  : 5,
-                  "Six"   : 6,
-                  "Seven" : 7,
-                  "Eight" : 8,
-                  "Nine"  : 9,
-                  "Ten"   : 10,
-                  "Jack"  : 11,
-                  "Queen" : 12,
-                  "King"  : 13,
-                  "Ace"   : 14
+        suits = ["h", "s", "d", "c"]
+        values = {"2"   : 2,
+                  "3" : 3,
+                  "4"  : 4,
+                  "5"  : 5,
+                  "6"   : 6,
+                  "7" : 7,
+                  "8" : 8,
+                  "9"  : 9,
+                  "10"   : 10,
+                  "J"  : 11,
+                  "Q" : 12,
+                  "K"  : 13,
+                  "A"   : 14
                   }
 
         for name in values:
