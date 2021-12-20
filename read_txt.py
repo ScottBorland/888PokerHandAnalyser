@@ -3,13 +3,12 @@
 def readFile(filePath):
     f = open(filePath,'r')
     lines = (f.readlines())
-    linesToRemove = [];
-    for i in range(0, len(lines) - 1):
-        if lines[i][0] == "#" or lines[i][0] == "$":
-            linesToRemove.append(lines[i])
-    for j in linesToRemove:
-        lines.remove(j)
+
+    filteredLines = []
     for line in lines:
+        if len(line) > 2 and line[0] != "$" and line [0] != "#":
+            filteredLines.append(line)
+    for line in filteredLines:
         print(line)
 
 readFile('sampleFile.txt')
