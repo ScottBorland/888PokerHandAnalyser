@@ -1,9 +1,6 @@
 import read_txt
 import pygame
 
-
-from collections import OrderedDict
-
 pygame.init()
 
 filteredLines = read_txt.readFileAndFilter('sampleFile.txt')
