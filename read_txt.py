@@ -1,4 +1,4 @@
-
+from collections import OrderedDict
 
 def readFileAndFilter(filePath):
     f = open(filePath,'r')
@@ -54,9 +54,9 @@ def splitHands(filteredLines):
             player6 = l[2]
             player6stack = l[4]
 
-            playerInfo = {player1:player1stack, player2:player2stack, player3:player3stack, player4:player4stack, player5:player5stack, player6:player6stack}
-            #print(playerInfo)
-            
+            playerNames = (player1, player2, player3, player4, player5, player6)
+            playerStacks = (player1stack, player2stack, player3stack, player4stack, player5stack, player6stack)
+        
             #assign events list
             events = []
             for j in range(9, len(fl)-1):
@@ -68,18 +68,19 @@ def splitHands(filteredLines):
                     events.append(event)
             #print(eventsList)
 
-            newHand = Hand(number, table, playerInfo, events)
+            newHand = Hand(number, table, playerNames, playerStacks, events)
             hands.append(newHand)
     return hands
                 
     
 
 class Hand( object ):
-    def __init__(self, number, table, playerInfo, events):
+    def __init__(self, number, table, playerNames, playerStacks, events):
         self.number = number
         self.table = table
-        self.playerInfo = playerInfo
+        self.playerNames = playerNames
+        self.playerStacks = playerStacks
         self.events = events
 
-filteredLines = readFileAndFilter('sampleFile.txt')
-hands = splitHands(filteredLines)
+#filteredLines = readFileAndFilter('sampleFile.txt')
+#hands = splitHands(filteredLines)
